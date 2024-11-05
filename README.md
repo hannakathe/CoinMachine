@@ -1,6 +1,6 @@
 # CoinMachine
 
-# Proyecto de Máquina Tragamonedas con ESP32
+## Proyecto de Máquina Tragamonedas con ESP32
 
 ## Descripción
 
@@ -19,11 +19,15 @@ Este proyecto consiste en la construcción de una máquina tragamonedas utilizan
 
 - **Hardware**
   - ESP32
+  - L298N
+  - Protoboard
   - Motores DC (3 unidades para los rodillos)
   - Servo motor (2 para las palancas liberadoras)
-  - Buzzer
-  - Sensores (para la combinación ganadora)
-  - Botones (para la detección de palanca)
+  - Buzzer (2)
+  - Sensores (3 encode, para la combinación ganadora)
+  - Botones (2 para la detección de palanca)
+  - Balineras, resorte
+  - Switch On/Off
   - Estructura mecánica para la máquina tragamonedas
   - Fuente de alimentación adecuada
 
@@ -33,25 +37,35 @@ Este proyecto consiste en la construcción de una máquina tragamonedas utilizan
 
 ## Estructura del Proyecto
 
-Proyecto-Tragamonedas/ │ 
+CoinMachine/ │ 
 
-├── main.py # Código principal en MicroPython 
+├── main.py                  # Archivo principal donde se importa todo
+
+├── motor_control.py         # Controla la rotación de los motores (rodillos)
+
+├── button_control.py         # Controlado mediante el movimiento de la palanca
+
+├── buzzer_control.py        # Controla el buzzer
+
+├── prize_detection.py       # Lógica de detección de combinaciones ganadoras
+
+├── coin_release.py          # Controla la liberación de monedas
 
 ├── README.md # Documentación del proyecto 
 
-├── hardware/ # Esquemas de conexiones y diseño de hardware 
 
-├── software/ # Código y bibliotecas utilizadas └── docs/ # Documentación adicional
+
+
 
 
 ## Instalación y Configuración
 
 1. **Conexiones de Hardware**
    - Conectar los motores DC a los pines del ESP32.
-   - Conectar el servo motor para las palancas liberadoras.
+   - Conectar los servo motorers a las palancas liberadoras, una en el primer almacen de monedas, y el otro en el almacen general del para liberación del premio.
    - Conectar el buzzer al ESP32.
    - Configurar los sensores para la detección de combinaciones ganadoras.
-   - Configurar los botones para la palanca y correspondiente iniciación del juego
+   - Configurar los botones para la palanca, boton superior para inicializacion del juego, y liberación de monedas del primer almacen, boton inferior para posible freno de los rodillos
 
 2. **Instalación de MicroPython**
    - Descargar e instalar MicroPython en el ESP32 siguiendo las [instrucciones oficiales](https://docs.micropython.org/en/latest/esp32/tutorial/intro.html).
@@ -67,9 +81,10 @@ Proyecto-Tragamonedas/ │
 
 ## Funcionamiento
 
-- **Inicio del Juego**: Al accionar la palanca, en la parte superior se presiona el boton que hace que se inicien los motores DC que hacen girar los rodillos.
-- **Detección de Combinaciones Ganadoras**: Se implementa una lógica que verifica si los rodillos se detienen en una combinación ganadora.
-- **Liberación de Monedas**: Se utiliza un servo motor o un mecanismo alternativo para liberar monedas cuando el jugador gana.
+- **Inicio del Juego**: Al accionar la palanca, en la parte superior se presiona el boton que hace que se inicien los motores DC que hacen girar los rodillos al mismo tiempo se le da la instrucción al servomotor de la plataforma liberadora del primer almacen de monedas liberando la moneda ingresando al almacen general donde estan las otras monedas.
+- **Movimiento de los rodillos**: Al bajar la palanca y cuando vuelva a la ubicacion inicial se presionara el boton inferior realizando el frenado de los rodillos, y dandole un tiempo aleatoreo a cada rodillo para q siga rodando hasta q se detenga. Una vez los rodillos se detengan el encode analiza en que posición termino el rodillo.
+- **Detección de Combinaciones Ganadoras**: Se implementa una lógica que verifica si los rodillos se detienen en una combinación ganadora, mediante el encode. 
+- **Liberación de Monedas**: Se utiliza un servo motor o un mecanismo alternativo para liberar monedas del almacen general cuando el jugador gana.
 
 ## Contribuciones
 
