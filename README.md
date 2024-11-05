@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/f6148103-c90e-4d33-b1af-90711e9c4935)
+
 # CoinMachine
 
 # Proyecto de Máquina Tragamonedas con ESP32
