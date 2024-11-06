@@ -37,7 +37,7 @@ Este proyecto consiste en la construcción de una máquina tragamonedas utilizan
 
 ## Estructura del Proyecto
 
-CoinMachine/ │ 
+CoinMachine/ │
 
 ├── main.py                  # Archivo principal donde se importa todo
 
@@ -53,12 +53,7 @@ CoinMachine/ │
 
 ├── coin_release.py          # Controla la liberación de monedas
 
-├── README.md # Documentación del proyecto 
-
-
-
-
-
+├── README.md # Documentación del proyecto
 
 ## Instalación y Configuración
 
@@ -85,7 +80,7 @@ CoinMachine/ │
 
 - **Inicio del Juego**: Al accionar la palanca, en la parte superior se presiona el boton que hace que se inicien los motores DC que hacen girar los rodillos al mismo tiempo se le da la instrucción al servomotor de la plataforma liberadora del primer almacen de monedas liberando la moneda ingresando al almacen general donde estan las otras monedas.
 - **Movimiento de los rodillos**: Al bajar la palanca y cuando vuelva a la ubicacion inicial se presionara el boton inferior realizando el frenado de los rodillos, y dandole un tiempo aleatoreo a cada rodillo para q siga rodando hasta q se detenga. Una vez los rodillos se detengan el encode analiza en que posición termino el rodillo.
-- **Detección de Combinaciones Ganadoras**: Se implementa una lógica que verifica si los rodillos se detienen en una combinación ganadora, mediante el encode. 
+- **Detección de Combinaciones Ganadoras**: Se implementa una lógica que verifica si los rodillos se detienen en una combinación ganadora, mediante el encode.
 - **Liberación de Monedas**: Se utiliza un servo motor o un mecanismo alternativo para liberar monedas del almacen general cuando el jugador gana.
 
 ## Contribuciones
@@ -97,4 +92,3 @@ Para colaborar en el proyecto:
 3. Realiza tus cambios y haz commit (`git commit -m 'Agrega nueva funcionalidad'`).
 4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
 5. Abre un Pull Request.
-
