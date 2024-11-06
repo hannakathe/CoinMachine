@@ -47,6 +47,8 @@ CoinMachine/ │
 
 ├── buzzer_control.py        # Controla el buzzer
 
+├── encoder_control.py        # Controla la ubicación inicial y final de los motores ademas controla el boton de frenado de los rodillos
+
 ├── prize_detection.py       # Lógica de detección de combinaciones ganadoras
 
 ├── coin_release.py          # Controla la liberación de monedas
