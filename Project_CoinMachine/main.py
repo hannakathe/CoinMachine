@@ -1,6 +1,5 @@
 # Archivo principal donde se importa
 
-
 from motor_control import MotorControl
 from button_control import ButtonControl
 from buzzer_control import BuzzerControl
