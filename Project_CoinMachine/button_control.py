@@ -1,12 +1,11 @@
 # Controlado mediante el movimiento 
 
-
 from machine import Pin
 import time
 
 class ButtonControl:
     def __init__(self, button_pin):
-        # Configura el pin del botón como entrada
+        # button_pin=21
         self.button = Pin(button_pin, Pin.IN, Pin.PULL_UP)
     
     def is_button_pressed(self):
@@ -19,3 +18,6 @@ class ButtonControl:
         while not self.is_button_pressed():
             time.sleep(0.1)  # Evita un bucle muy rápido
         print("¡Botón presionado! Iniciando el juego.")
+
+
+prueba=ButtonControl()
