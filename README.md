@@ -1,4 +1,4 @@
-# CoinMachine
+# CoinMachine.
 
 ## Proyecto de Máquina Tragamonedas con ESP32
 
