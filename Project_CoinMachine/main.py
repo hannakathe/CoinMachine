@@ -4,7 +4,7 @@ from motor_control import MotorControl
 from button_control import ButtonControl
 from buzzer_control import BuzzerControl
 from prize_detection import PrizeDetection
-from coin_release import CoinRelease
+from Project_CoinMachine.coin_release import CoinRelease
 
 # Inicialización de los componentes
 motor1 = MotorControl(motor_pin=5)
