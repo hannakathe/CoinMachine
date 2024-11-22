@@ -24,13 +24,4 @@ class CoinRelease:
         self.set_servo_angle(180)
 
 
-#Ejemplo de uso de clase
 
-""" time_release=1
-
-servo1=CoinRelease(servo_pin=27)
-servo2=CoinRelease(servo_pin=26)
-
-servo1.open_coin_release()
-time.sleep(time_release)
-servo1.close_coin_release() """

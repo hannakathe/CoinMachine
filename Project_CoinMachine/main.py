@@ -1,7 +1,7 @@
 # Archivo principal donde se importa
 
 from motor_control import MotorControl
-from button_control import ButtonControl
+from palanca_control import PalancaControl
 from buzzer_control import BuzzerControl
 from prize_detection import PrizeDetection
 from Project_CoinMachine.coin_release import CoinRelease
@@ -11,14 +11,14 @@ motor1 = MotorControl(motor_pin=5)
 motor2 = MotorControl(motor_pin=18)
 motor3 = MotorControl(motor_pin=19)
 
-button1 = ButtonControl(button_pin=21)
+palanca=PalancaControl(x_pin=30, y_pin=33)
 buzzer = BuzzerControl(buzzer_pin=22)
 prize_detector = PrizeDetection()
 coin_mechanism = CoinRelease(release_pin=23)
 
 # Ejecución del flujo de juego
 def start_game():
-    button1.wait_for_press()  # Espera a que se presione el botón
+    palanca.wait_for_press()  # Espera a que se presione el botón
     
     buzzer.play_start_sound()
     
