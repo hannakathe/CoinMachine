@@ -4,7 +4,7 @@ from machine import Pin, ADC
 import time
 
 
-class PalancaControl:
+class JoystickControl:
     def __init__(self, x_pin, y_pin,THRESHOLD_DOWN = 1000):
         self.x_pin = ADC(Pin(x_pin))
         self.y_pin = ADC(Pin(y_pin))
