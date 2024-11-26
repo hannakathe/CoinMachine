@@ -1,3 +1,5 @@
+import config.setting as setting
+from hardware.joystick_control import JoystickControl
 from reserveMoney import ReserveMoney
 from storageMoney import StorageMoney
 import time
@@ -7,15 +9,16 @@ class Palanca:
         self.reserve_money = reserve_money
         self.storage_money = storage_money
         self.game_started = False
+        self.joystick = JoystickControl(x_pin=setting.JOYSTICK_PIN_X_1, y_pin=setting.JOYSTICK_PIN_Y_1)
     
     def wait_for_press(self):
         print("Esperando que se baje la palanca...")
 
         while True:
             time.sleep(1)
-            #TODO verificar si se presiono la palanca
-            self.press_palanca()
-            break
+            if self.joystick.joystick_is_down():
+                self.press_palanca()
+                break
 
         print("¡Palanca abajo! Iniciando el juego.")
 

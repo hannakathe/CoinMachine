@@ -14,6 +14,9 @@ BUZZER_PIN = 22
 # Pin servo motor (liberacion de monedas)
 SERVO_PIN = 23
 
+# Pin sensor de monedas
+SENSOR_PIN = 15
+
 
 #Segundos para liberar monedas
 WINNER_TIME_BIG = 3
