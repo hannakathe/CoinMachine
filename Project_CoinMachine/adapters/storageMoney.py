@@ -9,15 +9,15 @@ class StorageMoney:
         self.drop_money = CoinRelease(release_pin=setting.SERVO_PIN)
         self.mqtt = mqtt
     
-    def add_money_to_storage(self):
+    def add_money_to_storage(self, counter_money):
         print("Añadiendo moneda a la base de datos...")
-        self.mqtt.publishMoney("1")
+        self.mqtt.publishMoney(str(counter_money))
 
-    def drop_money_from_storage(self, seconds = 2):
+    def drop_money_from_storage(self):
         print("Soltando monedas...")
         self.drop_money.open_coin_release()
-        time.sleep(seconds)
+        time.sleep(10)
         self.drop_money.close_coin_release()
 
         print("Eliminando moneda de la base de datos...")
-        self.mqtt.publishMoney("-1")
+        self.mqtt.resetMoney("Resetear")

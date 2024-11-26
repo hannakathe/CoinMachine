@@ -5,21 +5,20 @@ from adapters.ruleta import Ruleta
 
 from hardware.coin_release import CoinRelease
 from services.mqtt_server import MqttClient
+from services.validate_connection import ValidateConnection
 
 import config.setting as setting
 import time
 
 
 class Game:
-    def __init__(self, mqtt: MqttClient):
+    def __init__(self, mqtt: MqttClient, validate_connection: ValidateConnection):
         print("Iniciando el juego...")
         self.mqtt = mqtt
         self.reserve_money = ReserveMoney()
         self.storage_money = StorageMoney(mqtt)
         self.palanca = Palanca(self.reserve_money, self.storage_money)
         self.ruleta = Ruleta()
-
-        self.coin_mechanism = CoinRelease(release_pin=setting.SERVO_PIN)
 
 
     def start_game(self):
@@ -48,8 +47,6 @@ class Game:
 
     def step_3_reel(self):
         spin_response = self.ruleta.spin_response()
-        if (spin_response > 0):
+        if (spin_response):
             self.mqtt.publishWin("1")
-            self.coin_mechanism.release_coins()
-            time.sleep(spin_response)
-            self.coin_mechanism.stop_release()
+            self.storage_money.drop_money_from_storage()

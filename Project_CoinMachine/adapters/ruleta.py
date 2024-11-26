@@ -8,12 +8,14 @@ from core.prize_detection import PrizeDetection
 class Ruleta:
     def __init__(self):
         print("Ruleta")
-        self.motor1 = MotorControl(motor_pin=setting.MOTOR_PIN_1)
-        self.motor2 = MotorControl(motor_pin=setting.MOTOR_PIN_2)
-        self.motor3 = MotorControl(motor_pin=setting.MOTOR_PIN_3)
-
+        self.motor1 = MotorControl(PIN_LEFT=setting.MOTOR_PIN_1_LEFT, PIN_RIGHT=setting.MOTOR_PIN_1_RIGHT, PIN_VELOCITY=setting.MOTOR_PIN_1_VELOCITY)
+        self.motor2 = MotorControl(PIN_LEFT=setting.MOTOR_PIN_2_LEFT, PIN_RIGHT=setting.MOTOR_PIN_2_RIGHT, PIN_VELOCITY=setting.MOTOR_PIN_2_VELOCITY)
+        self.motor3 = MotorControl(PIN_LEFT=setting.MOTOR_PIN_3_LEFT, PIN_RIGHT=setting.MOTOR_PIN_3_RIGHT, PIN_VELOCITY=setting.MOTOR_PIN_3_VELOCITY)
 
     def spin_response(self):
+        #TODO OPCIONAL INICIAR SONIDO MUSICA BUZZER
+        #TODO VER COMO EJECUTAR MUSICA Y MOTORES AL MISMO TIEMPO
+
         print("Girando ruleta...")
         self.motor1.start_spin()
         self.motor2.start_spin()
@@ -35,7 +37,9 @@ class Ruleta:
         self.motor2.turn_initial_position() 
         self.motor3.turn_initial_position()
 
-        if (prize_detector.check_winner() > 0):
+        #TODO OPCIONAL TERMINAR SONIDO MUSICA BUZZER
+
+        if (prize_detector.check_winner()):
             buzzer = BuzzerControl(buzzer_pin=setting.BUZZER_PIN)
             buzzer.play_win_sound()
 

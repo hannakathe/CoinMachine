@@ -2,6 +2,7 @@ import config.setting as setting
 from hardware.joystick_control import JoystickControl
 from reserveMoney import ReserveMoney
 from storageMoney import StorageMoney
+from hardware.coin_release import CoinRelease
 import time
 
 class Palanca:
@@ -10,12 +11,13 @@ class Palanca:
         self.storage_money = storage_money
         self.game_started = False
         self.joystick = JoystickControl(x_pin=setting.JOYSTICK_PIN_X_1, y_pin=setting.JOYSTICK_PIN_Y_1)
+        self.coin_release = CoinRelease(release_pin=setting.SERVO_PIN_RESERVE)
     
     def wait_for_press(self):
         print("Esperando que se baje la palanca...")
 
         while True:
-            time.sleep(1)
+            time.sleep(0.1)
             if self.joystick.joystick_is_down():
                 self.press_palanca()
                 break
@@ -24,8 +26,13 @@ class Palanca:
 
     def press_palanca(self):
         print("Se ha precionado la palanca")
+
+        self.coin_release.open_coin_release()
+        time.sleep(10)
+        self.coin_release.close_coin_release()
+
+        self.storage_money.add_money_to_storage(self.reserve_money.counter_money)
         self.reserve_money.remove_money_from_reserve()
-        self.storage_money.add_money_to_storage()
         self.game_started = True
 
     def return_money(self):

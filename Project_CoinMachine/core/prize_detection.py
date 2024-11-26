@@ -6,8 +6,9 @@ class PrizeDetection:
     def check_winner(self, reel_positions: list):
         if (reel_positions[0] == reel_positions[1] == reel_positions[2]): 
             print("Premio mayor")
-            return setting.WINNER_TIME_BIG;
+            return True
 
+        '''
         if (reel_positions[0] == reel_positions[1]):
             print("Premio intermedio")
             return setting.WINNER_TIME_MIDDLE;
@@ -19,5 +20,6 @@ class PrizeDetection:
         if (reel_positions[1] == reel_positions[2]):
             print("Premio intermedio")
             return setting.WINNER_TIME_MIDDLE;
+        '''
 
-        return 0;
+        return False

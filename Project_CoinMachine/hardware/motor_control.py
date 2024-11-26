@@ -3,8 +3,9 @@ import time
 from machine import Pin, PWM  # Importa los módulos necesarios
 
 class MotorControl:
-    def __init__(self, motor_pin):
-        self.motor = PWM(Pin(motor_pin))
+    def __init__(self, PIN_LEFT, PIN_RIGHT, PIN_VELOCITY):
+        #TODO corregir como funciona el motor
+        self.motor = PWM(Pin(PIN_LEFT, PIN_RIGHT, PIN_VELOCITY))
         self.current_position = 0
     
     def start_spin(self):

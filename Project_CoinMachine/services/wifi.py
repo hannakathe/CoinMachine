@@ -16,3 +16,7 @@ class Wifi:
             print(".", end="")
             time.sleep(0.1)
         print(" Connected!")
+
+    def validate_connection(self):
+        print("Validating connection...")
+        #todo

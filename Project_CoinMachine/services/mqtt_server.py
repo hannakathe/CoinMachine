@@ -31,5 +31,12 @@ class MqttClient :
     def publishMoney(self, msg):
         self.client.publish(setting.MQTT_TOPIC_MONEY, msg)
 
+    def resetMoney(self, msg):
+        self.client.publish(setting.MQTT_TOPIC_MONEY_RESET, msg)
+
     def publishWin(self, msg):
         self.client.publish(setting.MQTT_TOPIC_WINS, msg)
+
+    def validate_connection(self):
+        print("Validating connection...")
+        #todo

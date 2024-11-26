@@ -7,9 +7,9 @@ import time
 MIN_PULSE_DURATION = 10000  # Duración mínima del pulso (microsegundos)
 MAX_PULSE_DURATION = 1000000  # Duración máxima del pulso (microsegundos)
 
-class CoinSensor(): 
+class CoinSensor():
     def __init__(self):
-        self.sensor_pin = Pin(setting.SENSOR_PIN, Pin.IN)  # Ajusta este pin según tu conexión
+        self.sensor_pin = Pin(setting.COIN_SENSOR_PIN, Pin.IN)  # Ajusta este pin según tu conexión
 
     # Función para leer el pulso del sensor y devolver la duración en microsegundos
     def read_pulse(self, sensor):
@@ -20,8 +20,11 @@ class CoinSensor():
             return -1  # Retorna -1 si hubo un error
 
     # Función para detectar si hay una moneda dentro del rango de detección
-    def detect_coin(self):
-        while True:
+    def detect_coin(self, times = 0):
+        sub_times = times
+        while (times == 0 or sub_times > 0):
+            sub_times = sub_times - 1
+
             time.sleep(0.1)
             pulse_time = self.read_pulse(self.sensor_pin)
             if pulse_time == -1:
@@ -29,5 +32,6 @@ class CoinSensor():
 
             # Verifica si la duración del pulso está dentro del rango
             if MIN_PULSE_DURATION < pulse_time < MAX_PULSE_DURATION:
-                break
+                return True
 
+        return False
