@@ -10,7 +10,7 @@ class MqttClient :
       MQTT_USER      = setting.MQTT_USER
       MQTT_PASSWORD  = setting.MQTT_PASSWORD
 
-      led = Pin(2, Pin.OUT)
+      led = Pin(setting.MQTT_LED, Pin.OUT)
       led.value(0)
 
       def connect(): 

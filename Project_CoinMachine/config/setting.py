@@ -32,10 +32,12 @@ WINNER_TIME_BIG = 3
 WINNER_TIME_MIDDLE = 1.5
 
 #Wifi settings
+WIFI_LED = 19
 WIFI_USERNAME = "Hannah"
 WIFI_PASSWORD = "hanna2024"
 
 #MQTT settings
+MQTT_LED = 18
 MQTT_CLIENT_ID = "coin_machine"
 MQTT_BROKER = "broker.hivemq.com"
 MQTT_USER = ""
