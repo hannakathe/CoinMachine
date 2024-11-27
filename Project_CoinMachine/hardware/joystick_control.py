@@ -29,4 +29,4 @@ class JoystickControl:
         y_value = self.y_pin.read()
         return x_value, y_value
     
-prueba=PalancaControl()
+#prueba=JoystickControl()
