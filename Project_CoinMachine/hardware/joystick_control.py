@@ -16,7 +16,7 @@ class JoystickControl:
         
     def joystick_is_down(self):
         y_value = self.y_pin.read()
-        return y_value < self.THRESHOLD_DOWN
+        return y_value < self.threshold_down
 
     def wait_for_press(self):
         print("Esperando que se baje la palanca...")

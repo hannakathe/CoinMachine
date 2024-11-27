@@ -25,4 +25,4 @@ class ReserveMoney:
         if self.coin_sensor.detect_coin(times):
             self.push_money_to_reserve()
             print("¡Moneda ingresada! Iniciando el juego.")
-            self.await_for_money_in_reserve(50)
+            self.await_for_money_in_reserve(10)

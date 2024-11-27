@@ -6,7 +6,7 @@ from services.mqtt_server import MqttClient
 
 class StorageMoney:
     def __init__(self, mqtt: MqttClient):
-        self.drop_money = CoinRelease(release_pin=setting.SERVO_PIN)
+        self.drop_money = CoinRelease(setting.SERVO_PIN)
         self.mqtt = mqtt
     
     def add_money_to_storage(self, counter_money):

@@ -1,7 +1,7 @@
 import config.setting as setting
 from hardware.joystick_control import JoystickControl
-from reserveMoney import ReserveMoney
-from storageMoney import StorageMoney
+from adapters.reserveMoney import ReserveMoney
+from adapters.storageMoney import StorageMoney
 from hardware.coin_release import CoinRelease
 import time
 
@@ -11,7 +11,7 @@ class Palanca:
         self.storage_money = storage_money
         self.game_started = False
         self.joystick = JoystickControl(x_pin=setting.JOYSTICK_PIN_X_1, y_pin=setting.JOYSTICK_PIN_Y_1)
-        self.coin_release = CoinRelease(release_pin=setting.SERVO_PIN_RESERVE)
+        self.coin_release = CoinRelease(setting.SERVO_PIN_RESERVE)
     
     def wait_for_press(self):
         print("Esperando que se baje la palanca...")
