@@ -1,7 +1,7 @@
 
 # Pines de los motores
-MOTOR_PIN_1_LEFT = 2
-MOTOR_PIN_1_RIGHT = 4
+MOTOR_PIN_1_LEFT = 5
+MOTOR_PIN_1_RIGHT = 17
 MOTOR_PIN_1_VELOCITY = 27
 
 MOTOR_PIN_2_LEFT = 33
@@ -17,14 +17,14 @@ JOYSTICK_PIN_X_1 = 36
 JOYSTICK_PIN_Y_1 = 39
 
 # Pin buzzer (sonido)
-BUZZER_PIN = 5  #TODO revisar pin
+#BUZZER_PIN = 5  #TODO revisar pin
 
 # Pin servo motor (liberacion de monedas)
 SERVO_PIN = 22
 SERVO_PIN_RESERVE = 23
 
 # Pin sensor de monedas
-COIN_SENSOR_PIN = 15
+COIN_SENSOR_PIN = 34
 
 
 #Segundos para liberar monedas
