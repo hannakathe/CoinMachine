@@ -1,6 +1,6 @@
 import config.setting as setting
 import time
-import threading 
+#import threading 
 #TODO de Python, que permite ejecutar varias operaciones de manera concurrente.
 
 from hardware.motor_control import MotorControl
@@ -40,17 +40,18 @@ class Ruleta:
         self.motor3.turn_initial_position()
 
         #TODO OPCIONAL TERMINAR SONIDO MUSICA BUZZER
-        def play_buzzer(): 
-            self.buzzer.start_sound() 
-            time.sleep(2) # Duración del sonido 
-            self.buzzer.stop_sound()
+        """ def play_buzzer(): 
+           time.sleep(2) # Duración del sonido 
+           self.buzzer.stop_sound()
 
         motor_thread = threading.Thread(target=start_spin) 
         buzzer_thread = threading.Thread(target=play_buzzer) 
         motor_thread.start() 
         buzzer_thread.start() 
         motor_thread.join() 
-        buzzer_thread.join()
+        buzzer_thread.join() 
+        self.buzzer.start_sound()  """
+            
 
         if (prize_detector.check_winner()):
             buzzer = BuzzerControl(buzzer_pin=setting.BUZZER_PIN)

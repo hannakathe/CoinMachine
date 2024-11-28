@@ -1,12 +1,15 @@
 # Lógica de detección de combinaciones ganadoras
 import config.setting as setting
+from adapters.storageMoney import StorageMoney
+from adapters.reserveMoney import ReserveMoney
+from hardware.joystick_control import JoystickControl
 
 
 class PrizeDetection:
 
     def __init__(self, reel_positions: list):
-        self.reserve_money = reserve_money
-        self.storage_money = storage_money
+        self.reserve_money = StorageMoney
+        self.storage_money = ReserveMoney
         self.game_started = False
         self.joystick = JoystickControl(x_pin=setting.JOYSTICK_PIN_X_1, y_pin=setting.JOYSTICK_PIN_Y_1)
         self.reel_positions = reel_positions
