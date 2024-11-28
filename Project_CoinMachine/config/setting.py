@@ -17,11 +17,13 @@ JOYSTICK_PIN_X_1 = 36
 JOYSTICK_PIN_Y_1 = 39
 
 # Pin buzzer (sonido)
-#BUZZER_PIN = 5  #TODO revisar pin
+#BUZZER_PIN = 5  
+# TODO revisar pin
 
 # Pin servo motor (liberacion de monedas)
 SERVO_PIN = 22
-SERVO_PIN_RESERVE = 23
+#SERVO_PIN_RESERVE = 23
+#TODO RETIRAR PRIMER SERVO
 
 # Pin sensor de monedas
 COIN_SENSOR_PIN = 34
