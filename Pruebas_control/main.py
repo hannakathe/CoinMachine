@@ -1,13 +1,8 @@
-# main.py -- put your code here!
-
 from machine import Pin
-import time
+from time import sleep
 
-led = Pin(18, Pin.OUT)  # El pin 2 es común para el LED integrado en las ESP32
-
+# Configuración de pines
+led = Pin(2, Pin.OUT)  # Pin donde está conectado el LED
+led.value(1)
 led.value(0)
-""" while True:
-    led.value(1)  # Enciende el LED
-    time.sleep(1)  # Espera 1 segundo
-    led.value(0)  # Apaga el LED
-    time.sleep(1)  # Espera 1 segundo """
+

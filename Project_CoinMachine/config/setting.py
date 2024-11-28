@@ -20,8 +20,8 @@ JOYSTICK_PIN_Y_1 = 39
 BUZZER_PIN = 4
 
 # Pin servo motor (liberacion de monedas)
-SERVO_PIN = 23
-SERVO_PIN_RESERVE = 22
+SERVO_PIN = 22
+SERVO_PIN_RESERVE = 23
 
 # Pin sensor de monedas
 COIN_SENSOR_PIN = 15
