@@ -18,7 +18,7 @@ class CoinRelease:
     #Posiciones de la palanca
 
     def open_coin_release(self):
-        self.set_servo_angle(0)
+        self.set_servo_angle(90)
 
     def close_coin_release(self):
         self.set_servo_angle(180)

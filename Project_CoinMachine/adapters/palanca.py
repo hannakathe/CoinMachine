@@ -28,7 +28,7 @@ class Palanca:
         print("Se ha precionado la palanca")
 
         self.coin_release.open_coin_release()
-        time.sleep(10)
+        time.sleep(1)
         self.coin_release.close_coin_release()
 
         self.storage_money.add_money_to_storage(self.reserve_money.counter_money)

@@ -16,7 +16,7 @@ class StorageMoney:
     def drop_money_from_storage(self):
         print("Soltando monedas...")
         self.drop_money.open_coin_release()
-        time.sleep(10)
+        time.sleep(1)
         self.drop_money.close_coin_release()
 
         print("Eliminando moneda de la base de datos...")
