@@ -39,7 +39,7 @@ WIFI_USERNAME = "Hannah"
 WIFI_PASSWORD = "hanna2024"
 
 #MQTT settings
-MQTT_LED = 18
+MQTT_LED = 21
 MQTT_CLIENT_ID = "coin_machine"
 MQTT_BROKER = "broker.hivemq.com"
 MQTT_USER = ""
