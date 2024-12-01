@@ -43,3 +43,20 @@ class BuzzerControl:
         for freq, dur in tones:
             self._play_tone(freq, dur)
 
+    def play_waiting_sound(self): 
+        # Melodía de espera 
+        tones = [ 
+                (440, 0.5), 
+                (440, 0.5), 
+                (440, 0.5), 
+                (440, 0.5), 
+                (440, 0.5), 
+                (440, 0.5), 
+                (440, 0.5), 
+                (440, 0.5), 
+                (440, 0.5),
+                (440, 0.5) 
+                ] 
+        for freq, dur in tones: 
+            self._play_tone(freq, dur)   
+

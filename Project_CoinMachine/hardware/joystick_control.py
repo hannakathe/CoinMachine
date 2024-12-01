@@ -4,7 +4,7 @@ from machine import Pin, ADC
 import time
 
 
-class PalancaControl:
+class JoystickControl:
     def __init__(self, x_pin, y_pin,THRESHOLD_DOWN = 1000):
         self.x_pin = ADC(Pin(x_pin))
         self.y_pin = ADC(Pin(y_pin))
@@ -16,7 +16,7 @@ class PalancaControl:
         
     def joystick_is_down(self):
         y_value = self.y_pin.read()
-        return y_value < self.THRESHOLD_DOWN
+        return y_value < self.threshold_down
 
     def wait_for_press(self):
         print("Esperando que se baje la palanca...")
@@ -29,4 +29,4 @@ class PalancaControl:
         y_value = self.y_pin.read()
         return x_value, y_value
     
-prueba=PalancaControl()
+#prueba=JoystickControl()
