@@ -2,7 +2,7 @@ from machine import Pin, PWM
 import time
 
 # Configuración de los pines
-in1 = Pin(18, Pin.OUT)  # Pin para IN1 del L298N
+in1 = Pin(32, Pin.OUT)  # Pin para IN1 del L298N
 en = PWM(Pin(27))       # Pin para ENA del L298N (PWM)
 en.freq(1000)           # Frecuencia PWM de 1 kHz
 

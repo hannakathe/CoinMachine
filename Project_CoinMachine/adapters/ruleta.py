@@ -1,60 +1,46 @@
 import config.setting as setting
 import time
-#import threading 
-#TODO de Python, que permite ejecutar varias operaciones de manera concurrente.
-
+import random
 from hardware.motor_control import MotorControl
-from hardware.buzzer_control import BuzzerControl
 from core.prize_detection import PrizeDetection
 
 class Ruleta:
     def __init__(self):
         print("Ruleta")
-        self.motor1 = MotorControl(PIN_LEFT=setting.MOTOR_PIN_1_LEFT, PIN_RIGHT=setting.MOTOR_PIN_1_RIGHT, PIN_VELOCITY=setting.MOTOR_PIN_1_VELOCITY)
-        self.motor2 = MotorControl(PIN_LEFT=setting.MOTOR_PIN_2_LEFT, PIN_RIGHT=setting.MOTOR_PIN_2_RIGHT, PIN_VELOCITY=setting.MOTOR_PIN_2_VELOCITY)
-        self.motor3 = MotorControl(PIN_LEFT=setting.MOTOR_PIN_3_LEFT, PIN_RIGHT=setting.MOTOR_PIN_3_RIGHT, PIN_VELOCITY=setting.MOTOR_PIN_3_VELOCITY)
+        self.motor1 = MotorControl(PIN_MOTOR=setting.MOTOR_PIN_1, PIN_VELOCITY=setting.MOTOR_PIN_1_VELOCITY)
+        self.motor2 = MotorControl(PIN_MOTOR=setting.MOTOR_PIN_2, PIN_VELOCITY=setting.MOTOR_PIN_2_VELOCITY)
+        self.motor3 = MotorControl(PIN_MOTOR=setting.MOTOR_PIN_3, PIN_VELOCITY=setting.MOTOR_PIN_3_VELOCITY)
 
     def spin_response(self):
-        #TODO OPCIONAL INICIAR SONIDO MUSICA BUZZER
-        #TODO VER COMO EJECUTAR MUSICA Y MOTORES AL MISMO TIEMPO
-
+        # Girar los motores durante tiempos diferentes (entre 3 y 5 segundos)
         print("Girando ruleta...")
-        self.motor1.start_spin()
-        self.motor2.start_spin()
-        self.motor3.start_spin()
+        
+        # Los motores giran por un tiempo aleatorio entre 3 y 5 segundos
+        motor1_time = random.uniform(3, 5)  # Tiempo aleatorio entre 3 y 5 segundos
+        motor2_time = random.uniform(3, 5)  # Tiempo aleatorio entre 3 y 5 segundos
+        motor3_time = random.uniform(3, 5)  # Tiempo aleatorio entre 3 y 5 segundos
 
-        time.sleep(2)
+        # Iniciar el giro de los motores
+        self.motor1.random_spin()
+        self.motor2.random_spin()
+        self.motor3.random_spin()
 
-        self.motor1.stop_spin()
-        self.motor2.stop_spin()
-        self.motor3.stop_spin()
+        # Esperar el tiempo necesario para cada motor antes de proceder
+        # Esta espera garantiza que el código no avance hasta que todos los motores terminen
+        time.sleep(max(motor1_time, motor2_time, motor3_time))
 
+        # Detectar la posición de los motores
+        print("Detectando posicion")
         prize_detector = PrizeDetection([
             self.motor1.get_position(),
             self.motor2.get_position(),
             self.motor3.get_position()
         ])
 
+        # Volver a la posición inicial de los motores
+        print("Volviendo a la posición inicial")
         self.motor1.turn_initial_position()
-        self.motor2.turn_initial_position() 
+        self.motor2.turn_initial_position()
         self.motor3.turn_initial_position()
-
-        #TODO OPCIONAL TERMINAR SONIDO MUSICA BUZZER
-        """ def play_buzzer(): 
-           time.sleep(2) # Duración del sonido 
-           self.buzzer.stop_sound()
-
-        motor_thread = threading.Thread(target=start_spin) 
-        buzzer_thread = threading.Thread(target=play_buzzer) 
-        motor_thread.start() 
-        buzzer_thread.start() 
-        motor_thread.join() 
-        buzzer_thread.join() 
-        self.buzzer.start_sound()  """
-            
-
-        if (prize_detector.check_winner()):
-            buzzer = BuzzerControl(buzzer_pin=setting.BUZZER_PIN)
-            buzzer.play_win_sound()
 
         return prize_detector.check_winner()

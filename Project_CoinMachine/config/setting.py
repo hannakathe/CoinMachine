@@ -1,13 +1,13 @@
 
 # Pines de los motores
 MOTOR_PIN_1 = 18
-MOTOR_PIN_1_VELOCITY = 27
+MOTOR_PIN_1_VELOCITY = 33
 
-MOTOR_PIN_2 = 33
-MOTOR_PIN_2_VELOCITY = 25
+MOTOR_PIN_2 = 25
+MOTOR_PIN_2_VELOCITY = 26
 
 MOTOR_PIN_3 = 32
-MOTOR_PIN_3_VELOCITY = 26
+MOTOR_PIN_3_VELOCITY = 27
 
 #pines de los encoders 
 
@@ -26,8 +26,6 @@ JOYSTICK_PIN_Y_1 = 39
 
 # Pin servo motor (liberacion de monedas)
 SERVO_PIN = 22
-#SERVO_PIN_RESERVE = 23
-#TODO RETIRAR PRIMER SERVO
 
 # Pin sensor de monedas
 COIN_SENSOR_PIN = 34
