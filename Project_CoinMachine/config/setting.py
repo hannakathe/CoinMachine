@@ -19,11 +19,6 @@ ENCODER_PIN_MOTOR_3 = 13
 JOYSTICK_PIN_X_1 = 36
 JOYSTICK_PIN_Y_1 = 39
 
-
-# Pin buzzer (sonido)
-#BUZZER_PIN = 5  
-# TODO revisar pin
-
 # Pin servo motor (liberacion de monedas)
 SERVO_PIN = 22
 

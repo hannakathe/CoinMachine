@@ -1,7 +1,17 @@
 from hardware.coin_sensor import CoinSensor
 
-# Clase que gestiona la validacion de detectar que ha ingresado una moneda
 class ReserveMoney:
+    """
+    Clase que gestiona la validación de detectar que ha ingresado una moneda.
+
+    Atributos:
+    money_detected : bool
+        Indica si se ha detectado dinero en reserva.
+    coin_sensor : CoinSensor
+        Sensor utilizado para detectar monedas.
+    counter_money : int
+        Contador de monedas en reserva.
+    """
     def __init__(self):
         print("Push Money")
         self.money_detected = False
@@ -19,10 +29,16 @@ class ReserveMoney:
     def is_money_in_reserve(self):
         return self.money_detected
 
+    def await_for_money_in_reserve(self, times=0):
+        """
+        Espera a que se ingrese una moneda en la reserva.
 
-    def await_for_money_in_reserve(self, times = 0):
+        Parámetros:
+        times : int
+            Número de veces que se verificará la presencia de monedas.
+        """
         print("Esperando que se ingrese una moneda...")
-        if self.coin_sensor.detect_coin(times):
-            self.push_money_to_reserve()
-            print("¡Moneda ingresada! Iniciando el juego.")
-            self.await_for_money_in_reserve(10)
+        while not self.coin_sensor.detect_coin(times):
+            time.sleep(0.1)  # Pausar brevemente para evitar sobrecargar el CPU
+        self.push_money_to_reserve()
+        print("¡Moneda ingresada! Iniciando el juego.")

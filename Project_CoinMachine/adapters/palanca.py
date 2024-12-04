@@ -4,18 +4,19 @@ from adapters.reserveMoney import ReserveMoney
 from adapters.storageMoney import StorageMoney
 import time
 
-""" Clase que representa la palanca de la máquina tragamonedas. 
-
-Atributos: reserve_money : ReserveMoney 
-    Instancia para manejar el dinero en reserva. 
-storage_money : StorageMoney 
-    Instancia para manejar el almacenamiento del dinero. 
-game_started : bool 
-    Estado que indica si el juego ha comenzado. 
-joystick : JoystickControl 
-    Controlador del joystick para detectar movimientos. """
-
 class Palanca:
+
+    """ Clase que representa la palanca de la máquina tragamonedas. 
+
+    Atributos: reserve_money : ReserveMoney 
+        Instancia para manejar el dinero en reserva. 
+    storage_money : StorageMoney 
+        Instancia para manejar el almacenamiento del dinero. 
+    game_started : bool 
+        Estado que indica si el juego ha comenzado. 
+    joystick : JoystickControl 
+        Controlador del joystick para detectar movimientos. """
+    
     def __init__(self, reserve_money: ReserveMoney, storage_money: StorageMoney):
         self.reserve_money = reserve_money
         self.storage_money = storage_money
